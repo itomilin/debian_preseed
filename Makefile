@@ -1,11 +1,13 @@
+subnet := 192.168.99
+
 master-kvm-gen-preseed-file:
 	./generate_preseed.sh \
 	nointeractive \
-	master-kvm \
+	master1-kvm \
 	pass \
 	master \
 	pass \
-	192.168.10 \
+	$(subnet) \
 	100
 
 worker1-kvm-gen-preseed-file:
@@ -15,7 +17,7 @@ worker1-kvm-gen-preseed-file:
 	pass \
 	worker1 \
 	pass \
-	192.168.10 \
+	$(subnet) \
 	101
 
 worker2-kvm-gen-preseed-file:
@@ -25,7 +27,7 @@ worker2-kvm-gen-preseed-file:
 	pass \
 	worker2 \
 	pass \
-	192.168.10 \
+	$(subnet) \
 	102
 
 all: master-kvm-gen-preseed-file \

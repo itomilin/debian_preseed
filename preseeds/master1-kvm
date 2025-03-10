@@ -40,15 +40,15 @@ d-i keyboard-configuration/unsupported_config_layout  boolean true # ?
 d-i netcfg/choose_interface   select  auto
 d-i netcfg/dhcp_failed        note
 d-i netcfg/dhcp_options       select  Configure network manually
-d-i netcfg/get_ipaddress      string  192.168.99.102
+d-i netcfg/get_ipaddress      string  192.168.99.100
 d-i netcfg/get_netmask        string  255.255.255.0
 d-i netcfg/get_gateway        string  192.168.99.1
 d-i netcfg/get_nameservers    string  192.168.99.1,8.8.8.8
 d-i netcfg/confirm_static     boolean true
 
 d-i netcfg/get_domain   string
-d-i netcfg/get_hostname string worker2-kvm
-d-i netcfg/hostname     string worker2-kvm
+d-i netcfg/get_hostname string master1-kvm
+d-i netcfg/hostname     string master1-kvm
 ################################################################################
 
 
@@ -66,12 +66,12 @@ d-i mirror/suite          select stable
 # SUPERUSER
 d-i passwd/root-login            boolean true
 d-i passwd/make-user             boolean true
-d-i passwd/root-password-crypted password $6$Sv1RJYbYlvnBFcAW$wcfH8GMErxaMKHCcDyvgQy/76yk.MvDg8JGks7i1oBEWuFcC90SnJfOgz2P5ofaHIEgL1QwivUguma1ydznV.0
+d-i passwd/root-password-crypted password $6$JCZjj4pwd2WCkE3r$NEr9sS71J5yoshcl1IlcrhEWaztzlh8yHc/gke3/xQ1nYOD7x61yBr/NJniGv26TLim8RH3JBFIEs8qpINhS0.
 
 # USER
-d-i passwd/user-fullname         string   worker2
-d-i passwd/username              string   worker2
-d-i passwd/user-password-crypted password $6$URnmrXxJCVDOb7wK$ZCHypXd3g7w8bFKME9mc2tYlS3SUfft2SLixuaULvQcnbcWkUMCgotYStx16sMeIIau7mvEKODQzq965redoS0
+d-i passwd/user-fullname         string   master
+d-i passwd/username              string   master
+d-i passwd/user-password-crypted password $6$RldXm7oMRJWbsWFB$e7tUmwBIMZ.HLeshsAg/y4rD.13wll8A1Gs0cx3Q0zZsnDjVr8pPllLGx4SV3xAiPIMI27.XFrlUJfSxHQS1i.
 
 # GROUPS
 d-i passwd/user-default-groups string audio cdrom dip video plugdev \
@@ -180,7 +180,7 @@ d-i grub-installer/bootdev       string  default
 d-i preseed/late_command string \
     in-target curl -sL https://raw.githubusercontent.com/itomilin/debian11_preseed/main/post_cmd_kvm.sh -o /root/post_cmd_kvm.sh; \
     in-target chmod +x /root/post_cmd_kvm.sh; \
-    in-target /root/post_cmd_kvm.sh '192.168.99' '102' > /root/post_cmd.log 2>&1
+    in-target /root/post_cmd_kvm.sh '192.168.99' '100' > /root/post_cmd.log 2>&1
     
 ################################################################################
 

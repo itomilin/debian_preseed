@@ -1,7 +1,8 @@
 Change the environment variables in the **generate_preseed.sh** file and generate a preseed file for yourself.
+Tested on VMs without uefi (grub loader) and host with uefi(systemd-boot loader).
+
 
 !!Check makefile!!
-
 
 https://wiki.debian.org/DebianInstaller/Preseed
 

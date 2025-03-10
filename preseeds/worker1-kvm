@@ -40,10 +40,10 @@ d-i keyboard-configuration/unsupported_config_layout  boolean true # ?
 d-i netcfg/choose_interface   select  auto
 d-i netcfg/dhcp_failed        note
 d-i netcfg/dhcp_options       select  Configure network manually
-d-i netcfg/get_ipaddress      string  192.168.10.101
+d-i netcfg/get_ipaddress      string  192.168.99.101
 d-i netcfg/get_netmask        string  255.255.255.0
-d-i netcfg/get_gateway        string  192.168.10.1
-d-i netcfg/get_nameservers    string  192.168.10.1,8.8.8.8
+d-i netcfg/get_gateway        string  192.168.99.1
+d-i netcfg/get_nameservers    string  192.168.99.1,8.8.8.8
 d-i netcfg/confirm_static     boolean true
 
 d-i netcfg/get_domain   string
@@ -66,12 +66,12 @@ d-i mirror/suite          select stable
 # SUPERUSER
 d-i passwd/root-login            boolean true
 d-i passwd/make-user             boolean true
-d-i passwd/root-password-crypted password $6$/oNW5oWAZO2umNur$rhDbI/42fimIhZmc0.H185bhiHs.CLr/MeI1uZ8g4phNaXRmaVg5nY4Ycw..ObGgzS8/srvw75oq3xmxnRGQQ0
+d-i passwd/root-password-crypted password $6$MEaZ4ewGs7/22gJ2$vMhK1AHoFCD8KC24Krn3qtnijiiy1Rsr1dPIIn69WE/v4DNmFBOOuencrPExcKSq.IGbz6PHp.Wx8RPMXV.8K0
 
 # USER
 d-i passwd/user-fullname         string   worker1
 d-i passwd/username              string   worker1
-d-i passwd/user-password-crypted password $6$.vT.FjYY.kRzLBWu$e4K7NDXoEFy7bBcBN/e7yzTdr9yJ0Eq3iEmlaxN3U808WGMUPsk9hMTPdxaKu.erx1EDNcfcf1vINXiclIO4K/
+d-i passwd/user-password-crypted password $6$PLB4j3ianrSBCR5v$4Ns30k.wXEFXEHkfoIQs7OhTPJOF8huOA3Bf7FFnDBXUh0ET4BLyv4bO5gGHkNBABClInoqoQr3YEL39FaIp7.
 
 # GROUPS
 d-i passwd/user-default-groups string audio cdrom dip video plugdev \
@@ -180,7 +180,7 @@ d-i grub-installer/bootdev       string  default
 d-i preseed/late_command string \
     in-target curl -sL https://raw.githubusercontent.com/itomilin/debian11_preseed/main/post_cmd_kvm.sh -o /root/post_cmd_kvm.sh; \
     in-target chmod +x /root/post_cmd_kvm.sh; \
-    in-target /root/post_cmd_kvm.sh '192.168.10' '101' > /root/post_cmd.log 2>&1
+    in-target /root/post_cmd_kvm.sh '192.168.99' '101' > /root/post_cmd.log 2>&1
     
 ################################################################################
 
