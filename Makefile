@@ -5,7 +5,7 @@ master-kvm-gen-preseed-file:
 	nointeractive \
 	master1-kvm \
 	pass \
-	master \
+	master1 \
 	pass \
 	$(subnet) \
 	100
